@@ -10,102 +10,131 @@
 </head>
 
 <body>
-    <header class="flex flex-row justify-between px-12 py-5">
-      <span>
+    <header
+      class="flex flex-col items-center gap-4 px-6 py-5 sm:flex-row sm:justify-between sm:px-8 lg:px-12"
+    >
+      <span class="flex items-center">
         <img src="" alt="" />
-        <h1>FlowTech</h1>
+        <h1 class="text-2xl font-bold">FlowTech</h1>
       </span>
 
-      <nav class="flex flex-row gap-5">
+      <nav
+        class="flex flex-wrap justify-center gap-1 text-sm sm:gap-3 lg:gap-5"
+      >
         <a
           href=""
-          class="px-5 py-2 hover:bg-green-500 transition duration-150 ease-in-out rounded"
+          class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4"
           >Visão Geral</a
         >
         <a
           href=""
-          class="px-5 py-2 hover:bg-green-500 transition duration-150 ease-in-out rounded"
+          class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4"
           >Nossa Missão</a
         >
         <a
           href=""
-          class="px-5 py-2 hover:bg-green-500 transition duration-150 ease-in-out rounded"
+          class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4"
           >Recursos</a
         >
         <a
           href=""
-          class="px-5 py-2 hover:bg-green-500 transition duration-150 ease-in-out rounded"
+          class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4"
           >contato</a
         >
       </nav>
     </header>
 
     <main>
-      <section class="flex flex-row p-10 gap-10 bg-green-950">
-        <div class="flex flex-col flex-1 text-white justify-between">
-          <h1 class="text-[4.5rem] font-bold">O trânsito não precisa ser um problema</h1>
-          
-            <p class="text-[1.5rem] text-left">
-              Com nossos serviços, o trânsito deixa de ser algo imprevisível e
-              volátil. Você consegue ter acesso a resumos detalhados do
-              comportamento do trânsito e se sua infraestrutura é adequada ao
-              fluxo enfrentado.
-            </p>
+      <section
+        class="relative isolate flex min-h-[620px] flex-col justify-center gap-8 bg-green-950 bg-cover bg-center px-6 py-16 sm:px-10 lg:min-h-[680px] lg:px-16 lg:py-20"
+        style="background-image: url('./assets/imgs/fotoP.png)"
+      >
+        <div class="absolute inset-0 -z-10 bg-green-950/75"></div>
+        <div
+          class="flex w-full max-w-3xl flex-col justify-between gap-8 text-white"
+        >
+          <h1
+            class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+          >
+            O trânsito não precisa ser um problema
+          </h1>
 
-            <button
-              class="px-5 py-2 hover:bg-green-500 transition duration-150 ease-in-out rounded bg-emerald-800 max-w-fit" 
-            >
-              SAIBA MAIS
-            </button>
-          
-        </div>
-        <div class="flex-2">
-          <img src="./assets/imgs/fotoP.png" alt="" class="flex-1"/>
+          <p class="text-left text-lg leading-relaxed sm:text-xl lg:text-2xl">
+            Com nossos serviços, o trânsito deixa de ser algo imprevisível e
+            volátil. Você consegue ter acesso a resumos detalhados do
+            comportamento do trânsito e se sua infraestrutura é adequada ao
+            fluxo enfrentado.
+          </p>
+
+          <button
+            class="max-w-fit rounded bg-emerald-800 px-5 py-3 transition duration-150 ease-in-out hover:bg-green-500"
+          >
+            SAIBA MAIS
+          </button>
         </div>
       </section>
 
-      <section class="flex flex-row gap-10 p-10">
+      <section
+        class="grid grid-cols-1 gap-4 px-6 py-8 sm:grid-cols-2 sm:gap-6 sm:px-10 lg:grid-cols-4 lg:gap-8"
+      >
         <div
-          class="flex flex-col flex-1 p-5 shadow-xl border border-gray-200 rounded-lg"
+          class="flex flex-col rounded-lg border border-gray-200 p-5 shadow-xl"
         >
           <span>CPU</span>
-          <p class="text-[0.75rem]"><span class="text-[2rem] font-bold">30%</span> STATUS: <span>ATIVO</span></p>
+          <p class="text-[0.75rem]">
+            <span class="text-[2rem] font-bold">30%</span> STATUS:
+            <span>ATIVO</span>
+          </p>
         </div>
         <div
-          class="flex flex-col flex-1 p-5 shadow-xl border border-gray-200 rounded-lg"
+          class="flex flex-col rounded-lg border border-gray-200 p-5 shadow-xl"
         >
           <span>RAM</span>
-          <p class="text-[0.75rem]"><span class="text-[2rem] font-bold">170MB</span> STATUS: <span>ATIVO</span></p>
+          <p class="text-[0.75rem]">
+            <span class="text-[2rem] font-bold">170MB</span> STATUS:
+            <span>ATIVO</span>
+          </p>
         </div>
         <div
-          class="flex flex-col flex-1 p-5 shadow-xl border border-gray-200 rounded-lg"
+          class="flex flex-col rounded-lg border border-gray-200 p-5 shadow-xl"
         >
           <span>DISCO</span>
-          <p class="text-[0.75rem]"><span class="text-[2rem] font-bold">3.1GB</span> STATUS: <span>ATIVO</span></p>
+          <p class="text-[0.75rem]">
+            <span class="text-[2rem] font-bold">3.1GB</span> STATUS:
+            <span>ATIVO</span>
+          </p>
         </div>
         <div
-          class="flex flex-col flex-1 p-5 shadow-xl border border-gray-200 rounded-lg"
+          class="flex flex-col rounded-lg border border-gray-200 p-5 shadow-xl"
         >
           <span>REDE</span>
-          <p class="text-[0.75rem]"><span class="text-[2rem] font-bold">389.4KB/s</span> STATUS: <span>ATIVO</span></p>
+          <p class="text-[0.75rem]">
+            <span class="text-[2rem] font-bold">389.4KB/s</span> STATUS:
+            <span>ATIVO</span>
+          </p>
         </div>
       </section>
 
-      <section class="flex flex-col bg-gray-100 p-10 gap-10 items-center ">
-        
-        <div class="flex flex-col gap-5 text-center">
+      <section
+        class="flex flex-col items-center gap-8 bg-gray-100 px-6 py-10 sm:px-10 lg:gap-10 lg:px-16 lg:py-16"
+      >
+        <div class="flex w-full max-w-4xl flex-col gap-5 text-center">
           <h2 class="font-bold text-gray-700">Nossão Missão</h2>
-          <p class="font-bold text-[2.5rem]">Erradicar a fricção dos processos empresariais.</p>
-          <p> 
+          <p class="text-3xl font-bold leading-tight sm:text-4xl">
+            Erradicar a fricção dos processos empresariais.
+          </p>
+          <p>
             Acreditamos que o controle deve ser um condutor invisível,
-            permitindo que as equipes foquem na criação de <br> valor enquanto o
+            permitindo que as equipes foquem na criação de valor enquanto o
             sistema gerencia a complexidade estrutural com precisão cirúrgica.
           </p>
         </div>
 
-        <div class="flex flex-row gap-10 p-10">
+        <div
+          class="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+        >
           <div
-            class="flex flex-col flex-1 gap-5 p-5 shadow-xl border border-gray-200 rounded-lg bg-white"
+            class="flex flex-col gap-5 rounded-lg border border-gray-200 bg-white p-5 shadow-xl"
           >
             <svg
               width="40"
@@ -130,7 +159,9 @@
             </svg>
 
             <div>
-              <h3 class="font-bold text-[1.25rem] py-5">Visibilidade de Hardware</h3>
+              <h3 class="font-bold text-[1.25rem] py-5">
+                Visibilidade de Hardware
+              </h3>
 
               <p>
                 Captura contínua de métricas críticas de CPU, RAM, Disco e Rede.
@@ -141,7 +172,7 @@
           </div>
 
           <div
-            class="flex flex-col flex-1 gap-5 p-5 shadow-xl border border-gray-200 rounded-lg bg-white"
+            class="flex flex-col gap-5 rounded-lg border border-gray-200 bg-white p-5 shadow-xl"
           >
             <svg
               width="40"
@@ -166,7 +197,9 @@
             </svg>
 
             <div>
-              <h3 class="font-bold text-[1.25rem] py-5">Coleta e Alertas Automáticos</h3>
+              <h3 class="font-bold text-[1.25rem] py-5">
+                Coleta e Alertas Automáticos
+              </h3>
 
               <p>
                 Automação na extração de dados do sistema sem carregar a
@@ -177,7 +210,7 @@
           </div>
 
           <div
-            class="flex flex-col flex-1 gap-5 p-5 shadow-xl border border-gray-200 rounded-lg bg-white"
+            class="flex flex-col gap-5 rounded-lg border border-gray-200 bg-white p-5 shadow-xl"
           >
             <svg
               width="40"
