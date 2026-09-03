@@ -20,7 +20,7 @@
       <a href="" class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Visão Geral</a>
       <a href="" class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Nossa Missão</a>
       <a href="" class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Recursos</a>
-      <a href="" class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">contato</a>
+      <a href="" class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Contato</a>
       <a href="login-cadastro.html" class="bg-green-500 rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-gray-100 sm:px-4">Entrar</a>
     </nav>
   </header>
@@ -157,14 +157,16 @@
     </section>
 
     <section>
-      <div class="flex-col justify-items-center w-full">
+      <div class="flex-col justify-center items-center text-center w-full">
         <div class="h-10"></div>
         <h2 class="text-5xl font-bold"> Análise completa, em um só lugar </h2>
         <div class="h-10"></div>
-        <div class="text-2xl w-7/10 text-center"> Dashboard de diágnostico, observe cada um de seus microcomputadores
+        <div class="text-2xl w-full"> Dashboard de diágnostico, observe cada um de seus microcomputadores
           instalados em produção </div>
         <div class="h-10"></div>
-        <img class="w-7/10" src="./assets/comGraf.png" alt="">
+        <div class="flex justify-center items-center">
+          <img class="w-1/2 h-1/2 border-1 rounded-sm" src="./assets/image.png" alt="">
+        </div>
       </div>
     </section>
 
@@ -172,7 +174,7 @@
 
 
     <section>
-      <div class="flex-col justify-items-center w-full bg-gray-100">
+      <div class="flex flex-col justify-center items-center w-full bg-gray-100">
         <div class="h-10"></div>
         <h2 class="text-5xl font-bold">Recursos da Plataforma</h2>
         <div class="h-5"></div>
@@ -215,29 +217,41 @@
       <div>
         <div class="flex justify-center items-center gap-5">
           <div class="flex justify-center w-1/2 items-center flex-col h-[30dvh] ">
-            <h3 class=" text-4xl md:text-5xl font-bold">Entre em contato!</h3>
+            <h3 class=" text-4xl md:text-5xl font-bold">Cadastre sua empresa!</h3>
             <div class="h-10"></div>
-            <span class="w-4/5 text-xl">Preencha as informações ao lado para fazermos uma simulação, sem compromisso!
-              Saiba como otimizar o fluxo de dados em sua malha de pórticos de maneira rápida e segura.</span>
+            <span class="w-4/5 text-xl">Preencha as informações no card para iniciarmos o processo de cadastro da sua
+              empresa em nosso sistema!</span>
           </div>
           <div class="flex w-1/2 h-10/10 justify-center items-center">
             <div
-              class="flex flex-col flex justify-center items-center h-[70dvh] w-4/5 rounded-xl border-1 border-gray-300 shadow-xl/30 inset-shadow-indigo-500">
-              <label class="w-4/5" for="">Nome:</label>
-              <input class="border-1 rounded-md border-gray-300 shadow-md/30 inset-shadow-indigo-500 w-4/5 h-1/10 "
-                type="text" />
+              class="flex flex-col flex justify-center items-center text-center h-fit w-fit rounded-xl border-1 border-gray-300 shadow-xl/30 inset-shadow-indigo-500 p-6.5">
+              <div class="flex flex-col justify-center items-center gap-2">
+                <label class="w-4/5" for="">Nome Da Empresa:</label>
+                <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10 "
+                  type="text" placeholder="Consessionária Caxias Do Norte" />
+              </div>
               <div class="h-[30px]"></div>
-              <label class="w-4/5" for="">Endereço de email:</label>
-              <input class="border-1 rounded-md border-gray-300 shadow-md/30 inset-shadow-indigo-500 w-4/5 h-1/10"
-                type="text" name="" id="" />
+              <div class="flex flex-col justify-center items-center gap-2">
+                <label class="w-4/5" for="">CNPJ:</label>
+                <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                  type="number" name="" id="" placeholder="00.000.000/0000-00"/>
+              </div>
               <div class="h-[30px]"></div>
-              <label class="w-4/5" for="">Deixe uma mensagem:</label>
-              <textarea
-                class="border-1 rounded-md border-gray-300 shadow-md/30 inset-shadow-indigo-500 w-4/5 max-h-3/10 h-1/10"
-                type="text" name="" id=""></textarea>
+              <div class="flex flex-col justify-center items-center gap-2">
+                <label class="w-4/5" for="">Razão Social:</label>
+                <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                  type="text" name="" id="" placeholder="Caxias Do Norte SA"/>
+              </div>
+              <div class="h-[30px]"></div>
+              <div class="flex flex-col justify-center items-center gap-2">
+                <label class="w-4/5" for="">Endereço de email para contato:</label>
+                <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                  type="text" name="" id="" placeholder="contato.empresa@email.com"/>
+              </div>
+              <div class="h-[30px]"></div>
               <div class="h-10"></div>
               <button
-                class="w-3/10 h-[5vh] md:h-1/10 font-semibold text-white rounded-lg bg-green-900 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-green-500">Enviar</button>
+                class="w-fit h-[5vh] md:h-1/10 font-semibold text-white rounded-lg bg-green-900 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-green-500 pt-3.5 pb-3.5 pr-6.5 pl-6.5">Enviar</button>
             </div>
           </div>
         </div>
