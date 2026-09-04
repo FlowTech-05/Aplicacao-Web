@@ -7,7 +7,6 @@
   <title>FlowTech | Home</title>
   <link rel="stylesheet" href="./css/output.css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -243,14 +242,14 @@
                         <label class="w-4/5" for="">Nome Da Empresa:</label>
                         <input
                           class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10 "
-                          type="text" placeholder="Consessionária Caxias Do Norte" />
+                          type="text" id="ipt_nome_fantasia" placeholder="Consessionária Caxias Do Norte" />
                       </div>
                       <div class="h-[30px]"></div>
                       <div class="flex flex-col justify-center items-center gap-2">
                         <label class="w-4/5" for="">CNPJ:</label>
                         <input
                           class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
-                          type="number" name="" id="" placeholder="00.000.000/0000-00" />
+                          type="number" name="" id="ipt_cnpj" placeholder="00.000.000/0000-00" />
                       </div>
                     </div>
                     <div class="flex flex-col border border-gray-300 p-3 rounded-lg h-fit">
@@ -258,7 +257,7 @@
                         <label class="w-4/5" for="">Razão Social:</label>
                         <input
                           class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
-                          type="text" name="" id="" placeholder="Caxias Do Norte SA" />
+                          type="text" name="" id="ipt_razao_social" placeholder="Caxias Do Norte SA" />
                       </div>
                       <div class="h-[30px]"></div>
                       <div class="flex flex-col justify-center items-center gap-2">
@@ -326,7 +325,7 @@
                 <div class="h-10"></div>
               </div>
               <button
-                class="w-fit h-[5vh] md:h-1/10 font-semibold text-white rounded-lg bg-green-900 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-green-500 pt-3.5 pb-3.5 pr-6.5 pl-6.5 mt-4">Enviar</button>
+                class="w-fit h-[5vh] md:h-1/10 font-semibold text-white rounded-lg bg-green-900 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-green-500 pt-3.5 pb-3.5 pr-6.5 pl-6.5 mt-4" onclick="cadastrarEmpresa()">Enviar</button>
             </div>
           </div>
         </div>
@@ -341,3 +340,4 @@
 </body>
 
 </html>
+<script src="js/index.js"></script>
