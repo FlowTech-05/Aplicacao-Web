@@ -7,6 +7,7 @@
   <title>FlowTech | Home</title>
   <link rel="stylesheet" href="./css/output.css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -17,11 +18,16 @@
     </span>
 
     <nav class="flex flex-wrap justify-center gap-1 text-sm sm:gap-3 lg:gap-5">
-      <a href="index.html#nossa_missao" class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Nossa Missão</a>
-      <a href="index.html#produto" class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Nossa Solucão</a>
-      <a href="index.html#recursos" class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Recursos</a>
-      <a href="index.html#secao_cadastro" class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Contato</a>
-      <a href="login-cadastro.html" class="bg-green-500 rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-gray-100 sm:px-4">Entrar</a>
+      <a href="index.html#nossa_missao"
+        class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Nossa Missão</a>
+      <a href="index.html#produto"
+        class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Nossa Solucão</a>
+      <a href="index.html#recursos"
+        class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Recursos</a>
+      <a href="index.html#secao_cadastro"
+        class="rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-green-500 sm:px-4">Contato</a>
+      <a href="login-cadastro.html"
+        class="bg-green-500 rounded px-3 py-2 transition duration-150 ease-in-out hover:bg-gray-100 sm:px-4">Entrar</a>
     </nav>
   </header>
 
@@ -80,7 +86,8 @@
       </div>
     </section>
 
-    <section id="nossa_missao" class="flex flex-col items-center gap-8 bg-gray-100 px-6 py-10 sm:px-10 lg:gap-10 lg:px-16 lg:py-16">
+    <section id="nossa_missao"
+      class="flex flex-col items-center gap-8 bg-gray-100 px-6 py-10 sm:px-10 lg:gap-10 lg:px-16 lg:py-16">
       <div class="flex w-full max-w-4xl flex-col gap-5 text-center">
         <h2 class="font-bold text-gray-700">Nossa Missão</h2>
         <p class="text-3xl font-bold leading-tight sm:text-4xl">
@@ -216,42 +223,110 @@
       <div class="h-20"></div>
       <div>
         <div class="flex justify-center items-center gap-5">
-          <div class="flex justify-center w-1/2 items-center flex-col h-[30dvh] ">
-            <h3 class=" text-4xl md:text-5xl font-bold">Cadastre sua empresa!</h3>
-            <div class="h-10"></div>
-            <span class="w-4/5 text-xl">Preencha as informações no card para iniciarmos o processo de cadastro da sua
-              empresa em nosso sistema!</span>
-          </div>
+
           <div class="flex w-1/2 h-10/10 justify-center items-center">
             <div
               class="flex flex-col flex justify-center items-center text-center h-fit w-fit rounded-xl border-1 border-gray-300 shadow-xl/30 inset-shadow-indigo-500 p-6.5">
-              <div class="flex flex-col justify-center items-center gap-2">
-                <label class="w-4/5" for="">Nome Da Empresa:</label>
-                <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10 "
-                  type="text" placeholder="Consessionária Caxias Do Norte" />
+              <div class="flex flex-row gap-3">
+                <div class="flex flex-col gap-3">
+                  <div class="flex p-3 border border-gray-300 rounded-lg">
+                    <div class="flex justify-center items-center flex-col h-[30dvh] ">
+                      <h3 class=" text-4xl md:text-5xl font-bold">Cadastre sua empresa!</h3>
+                      <div class="h-10"></div>
+                      <span class="w-4/5 text-xl">Preencha as informações no card para iniciarmos o processo de cadastro da sua
+                        empresa em nosso sistema!</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-row gap-3">
+                    <div class="flex flex-col border border-gray-300 p-3 rounded-lg h-fit">
+                      <div class="flex flex-col justify-center items-center gap-2">
+                        <label class="w-4/5" for="">Nome Da Empresa:</label>
+                        <input
+                          class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10 "
+                          type="text" placeholder="Consessionária Caxias Do Norte" />
+                      </div>
+                      <div class="h-[30px]"></div>
+                      <div class="flex flex-col justify-center items-center gap-2">
+                        <label class="w-4/5" for="">CNPJ:</label>
+                        <input
+                          class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                          type="number" name="" id="" placeholder="00.000.000/0000-00" />
+                      </div>
+                    </div>
+                    <div class="flex flex-col border border-gray-300 p-3 rounded-lg h-fit">
+                      <div class="flex flex-col justify-center items-center gap-2">
+                        <label class="w-4/5" for="">Razão Social:</label>
+                        <input
+                          class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                          type="text" name="" id="" placeholder="Caxias Do Norte SA" />
+                      </div>
+                      <div class="h-[30px]"></div>
+                      <div class="flex flex-col justify-center items-center gap-2">
+                        <label class="w-4/5" for="">Endereço de email para contato:</label>
+                        <input
+                          class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                          type="text" name="" id="" placeholder="contato.empresa@email.com" />
+                      </div>
+                    </div>
+                  </div class="flex flex-row">
+                </div>
+                <div class="flex flex-col border border-gray-300 p-3 rounded-lg p-3">
+                  <div class="flex flex-col justify-center items-center gap-2">
+                    <label class="w-4/5">CEP</label>
+                    <input
+                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10 "
+                      type="text" placeholder="00.000.000" id="ipt_cep"
+                      onblur="completarCampos(document.getElementById('ipt_cep').value)" />
+                  </div>
+                  <div class="h-[30px]"></div>
+                  <div class="flex flex-col justify-center items-center gap-2">
+                    <label class="w-4/5">Logradouro</label>
+                    <input
+                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                      type="text" name="" id="ipt_logradouro" placeholder="Avenida Brasil"/>
+                  </div>
+                  <div class="h-[30px]"></div>
+                  <div class="flex flex-col justify-center items-center gap-2">
+                    <label class="w-4/5">Número</label>
+                    <input
+                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                      type="text" name="" id="ipt_numero" placeholder="321" />
+                  </div>
+                  <div class="h-[30px]"></div>
+                  <div class="flex flex-col justify-center items-center gap-2">
+                    <label class="w-4/5">Complemento:</label>
+                    <input
+                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                      type="text" name="" id="ipt_complemento" placeholder="Apartamento 201, Bloco C" />
+                  </div>
+                </div>
+                <div class="flex flex-col border border-gray-300 p-3 rounded-lg p-3">
+                  <div class="flex flex-col justify-center items-center gap-2">
+                    <label class="w-4/5">Bairro:</label>
+                    <input
+                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                      type="text" name="" id="ipt_bairro" placeholder="Parque dos Ipês" />
+                  </div>
+                  <div class="h-[30px]"></div>
+                  <div class="flex flex-col justify-center items-center gap-2">
+                    <label class="w-4/5">Cidade:</label>
+                    <input
+                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                      type="text" name="" id="ipt_cidade" placeholder="Belo Horizonte" />
+                  </div>
+                  <div class="h-[30px]"></div>
+                  <div class="flex flex-col justify-center items-center gap-2">
+                    <label class="w-4/5">UF:</label>
+                    <input
+                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
+                      type="text" name="" id="ipt_uf" placeholder="ES" />
+                  </div>
+                  <div class="h-[30px]"></div>
+                </div>
+                <div class="h-10"></div>
               </div>
-              <div class="h-[30px]"></div>
-              <div class="flex flex-col justify-center items-center gap-2">
-                <label class="w-4/5" for="">CNPJ:</label>
-                <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
-                  type="number" name="" id="" placeholder="00.000.000/0000-00"/>
-              </div>
-              <div class="h-[30px]"></div>
-              <div class="flex flex-col justify-center items-center gap-2">
-                <label class="w-4/5" for="">Razão Social:</label>
-                <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
-                  type="text" name="" id="" placeholder="Caxias Do Norte SA"/>
-              </div>
-              <div class="h-[30px]"></div>
-              <div class="flex flex-col justify-center items-center gap-2">
-                <label class="w-4/5" for="">Endereço de email para contato:</label>
-                <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65 h-1/10"
-                  type="text" name="" id="" placeholder="contato.empresa@email.com"/>
-              </div>
-              <div class="h-[30px]"></div>
-              <div class="h-10"></div>
               <button
-                class="w-fit h-[5vh] md:h-1/10 font-semibold text-white rounded-lg bg-green-900 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-green-500 pt-3.5 pb-3.5 pr-6.5 pl-6.5">Enviar</button>
+                class="w-fit h-[5vh] md:h-1/10 font-semibold text-white rounded-lg bg-green-900 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-green-500 pt-3.5 pb-3.5 pr-6.5 pl-6.5 mt-4">Enviar</button>
             </div>
           </div>
         </div>
