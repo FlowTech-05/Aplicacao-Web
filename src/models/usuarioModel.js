@@ -10,7 +10,13 @@ function cadastrar(nome, email, senha, fk_empresa) {
     return database.executar(instrucaoSql);
 }
 
+function login(email, senha) {
+    var instrucaoSql = `SELECT * FROM usuarios WHERE email = '${email}' AND senha = '${senha}'`;
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     verificarCodigo,
-    cadastrar
+    cadastrar,
+    login
 };

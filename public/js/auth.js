@@ -34,6 +34,9 @@ async function login() {
     })
 
     if(requisicao.ok) {
-        window.location = './dashboard/embarcado.html'
+        resposta = await requisicao.json();
+        console.log(resposta);
+        sessionStorage.setItem("USER_ID", resposta.id);
+        sessionStorage.setItem("EMPRESA_ID", resposta.empresa_id); 
     }
 }
