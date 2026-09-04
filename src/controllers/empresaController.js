@@ -1,47 +1,22 @@
 var empresaModel = require("../models/empresaModel");
 
-function buscarPorCnpj(req, res) {
-  var cnpj = req.query.cnpj;
-
-  empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
-    res.status(200).json(resultado);
-  });
-}
-
-function listar(req, res) {
-  empresaModel.listar().then((resultado) => {
-    res.status(200).json(resultado);
-  });
-}
-
-function buscarPorId(req, res) {
-  var id = req.params.id;
-
-  empresaModel.buscarPorId(id).then((resultado) => {
-    res.status(200).json(resultado);
-  });
-}
-
-function cadastrar(req, res) {
+function cadastrarEmpresa(req, res) {
   var cnpj = req.body.cnpj;
-  var razaoSocial = req.body.razaoSocial;
+  var razao_social = req.body.razao_social;
+  var nome_fantasia = req.body.nome_fantasia;
+  var cep = req.body.cep;
+  var logradouro = req.body.logradouro;
+  var bairro = req.body.bairro;
+  var localidade = req.body.localidade;
+  var uf = req.body.uf;
+  var numero = req.body.numero;
+  var complemento = req.body.complemento;
 
-  empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
-    if (resultado.length > 0) {
-      res
-        .status(401)
-        .json({ mensagem: `a empresa com o cnpj ${cnpj} já existe` });
-    } else {
-      empresaModel.cadastrar(razaoSocial, cnpj).then((resultado) => {
-        res.status(201).json(resultado);
-      });
-    }
+  empresaModel.cadastrarEmpresa(cnpj, razao_social, nome_fantasia, cep, logradouro, bairro, localidade, uf, numero, complemento).then((resultado) => {
+    res.status(200).json(resultado);
   });
 }
 
 module.exports = {
-  buscarPorCnpj,
-  buscarPorId,
-  cadastrar,
-  listar,
+    cadastrarEmpresa
 };
