@@ -121,3 +121,30 @@ CREATE TABLE codigos_autenticacao (
   CONSTRAINT fk_codigos_autenticacao_empresa
     FOREIGN KEY (fk_empresa) REFERENCES empresas (id)
 );
+
+DELIMITER $$
+CREATE PROCEDURE cadastrarEmpresa(
+	IN p_cnpj char(14),
+    IN p_r_social varchar(45),
+    IN p_n_fantasia varchar(45),
+    IN p_cep char(8),
+    IN p_logradouro varchar(120),
+    IN p_bairro char(80),
+    IN p_localidade char(60),
+    IN p_uf char(2),
+    IN p_numero varchar(20),
+    IN p_complemento varchar(100)
+    )
+BEGIN
+	DECLARE contador INTEGER;
+
+	INSERT INTO empresas(cnpj, razao_social, nome_fantasia) VALUES (p_cnpj, p_r_social, p_n_fantasia);
+	SELECT COUNT(*) INTO contador FROM logradouros WHERE p_cep = cep;
+    
+    IF(contador = 0) THEN
+		INSERT INTO logradouros VALUES (p_cep, p_logradouro, p_bairro, p_localidade, p_uf);
+	END IF;
+    
+	INSERT INTO endereco_empresas(fk_empresa, fk_logradouro, numero, complemento) VALUES ((select id from empresas where cnpj = p_cnpj), p_cep, p_numero, p_complemento);
+END $$	
+DELIMITER ;
