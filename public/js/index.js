@@ -23,6 +23,8 @@ function cadastrarEmpresa() {
     let bairro = document.getElementById('ipt_bairro').value;
     let localidade = document.getElementById('ipt_localidade').value;
     let uf = document.getElementById('ipt_uf').value;
+    let numero = document.getElementById('ipt_numero').value;
+    let complemento = document.getElementById('ipt_complemento').value
 
     fetch('/empresas/cadastrarEmpresa', {
         method: "POST",
@@ -35,7 +37,9 @@ function cadastrarEmpresa() {
             logradouro: logradouro,
             bairro: bairro,
             localidade: localidade,
-            uf: uf
+            uf: uf,
+            numero: numero,
+            complemento: complemento
         })
     })
 }

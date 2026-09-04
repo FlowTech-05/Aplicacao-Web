@@ -9,8 +9,10 @@ function cadastrarEmpresa(req, res) {
   var bairro = req.body.bairro;
   var localidade = req.body.localidade;
   var uf = req.body.uf;
+  var numero = req.body.numero;
+  var complemento = req.body.complemento;
 
-  empresaModel.cadastrarEmpresa(cnpj, razao_social, nome_fantasia, cep, logradouro, bairro, localidade, uf).then((resultado) => {
+  empresaModel.cadastrarEmpresa(cnpj, razao_social, nome_fantasia, cep, logradouro, bairro, localidade, uf, numero, complemento).then((resultado) => {
     res.status(200).json(resultado);
   });
 }
