@@ -1,58 +1,123 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+CREATE DATABASE IF NOT EXISTS flowtech;
 
-/*
-comandos para mysql server
-*/
-
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+-- Empresas
+CREATE TABLE empresas (
+  id INT NOT NULL AUTO_INCREMENT,
+  cnpj CHAR(14) NOT NULL,
+  razao_social VARCHAR(45) NOT NULL,
+  nome_fantasia VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY cnpj_UNIQUE (cnpj)
 );
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+-- Usuários
+CREATE TABLE usuarios (
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(45) NULL,
+  email VARCHAR(45) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
+  fk_empresa INT NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY email_UNIQUE (email),
+  KEY fk_usuarios_empresa_idx (fk_empresa),
+  CONSTRAINT fk_usuarios_empresa
+    FOREIGN KEY (fk_empresa) REFERENCES empresas (id)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+-- Pórticos
+CREATE TABLE porticos (
+  id INT NOT NULL AUTO_INCREMENT,
+  fk_empresa INT NOT NULL,
+  codigo_identificacao VARCHAR(45) NULL,
+  PRIMARY KEY (id),
+  KEY fk_porticos_empresa_idx (fk_empresa),
+  CONSTRAINT fk_porticos_empresa
+    FOREIGN KEY (fk_empresa) REFERENCES empresas (id)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+-- Endereço dos pórticos
+CREATE TABLE endereco_porticos (
+  id INT NOT NULL AUTO_INCREMENT,
+  fk_portico INT NOT NULL,
+  rodovia VARCHAR(50) NULL,
+  km DECIMAL(6,2) NULL,
+  sentido VARCHAR(10) NULL,
+  uf CHAR(2) NULL,
+  PRIMARY KEY (id),
+  KEY fk_endereco_porticos_portico_idx (fk_portico),
+  CONSTRAINT fk_endereco_porticos_portico
+    FOREIGN KEY (fk_portico) REFERENCES porticos (id)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+-- Dispositivos embarcados
+CREATE TABLE embarcados (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(45) NULL,
+  uuid CHAR(36) NULL,
+  status TINYINT(1) NULL,
+  fk_portico INT NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY uuid_UNIQUE (uuid),
+  KEY fk_embarcados_portico_idx (fk_portico),
+  CONSTRAINT fk_embarcados_portico
+    FOREIGN KEY (fk_portico) REFERENCES porticos (id)
 );
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+-- Componentes
+CREATE TABLE componentes (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(45) NULL,
+  PRIMARY KEY (id)
+);
+
+-- Parâmetros (relação embarcado x componente)
+CREATE TABLE parametros (
+  fk_embarcado INT NOT NULL,
+  fk_componente INT NOT NULL,
+  valor_minimo FLOAT NULL,
+  valor_maximo FLOAT NULL,
+  unidade_medida VARCHAR(45) NULL,
+  PRIMARY KEY (fk_embarcado, fk_componente),
+  KEY fk_parametros_componente_idx (fk_componente),
+  KEY fk_parametros_embarcado_idx (fk_embarcado),
+  CONSTRAINT fk_parametros_embarcado
+    FOREIGN KEY (fk_embarcado) REFERENCES embarcados (id),
+  CONSTRAINT fk_parametros_componente
+    FOREIGN KEY (fk_componente) REFERENCES componentes (id)
+);
+
+-- Logradouros (base de CEPs)
+CREATE TABLE logradouros (
+  cep CHAR(8) NOT NULL,
+  logradouro VARCHAR(120) NOT NULL,
+  bairro VARCHAR(80) NOT NULL,
+  localidade VARCHAR(60) NOT NULL,
+  uf CHAR(2) NOT NULL,
+  PRIMARY KEY (cep)
+);
+
+-- Endereço das empresas
+CREATE TABLE endereco_empresas (
+  id INT NOT NULL AUTO_INCREMENT,
+  fk_empresa INT NOT NULL,
+  fk_logradouro CHAR(8) NOT NULL,
+  numero VARCHAR(20) NOT NULL,
+  complemento VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id),
+  KEY fk_endereco_empresas_logradouro_idx (fk_logradouro),
+  CONSTRAINT fk_endereco_empresas_empresa
+    FOREIGN KEY (fk_empresa) REFERENCES empresas (id),
+  CONSTRAINT fk_endereco_empresas_logradouro
+    FOREIGN KEY (fk_logradouro) REFERENCES logradouros (cep)
+);
+
+CREATE TABLE codigos_autenticacao (
+  id INT NOT NULL AUTO_INCREMENT,
+  fk_empresa INT NOT NULL,
+  codigo_autenticacao CHAR(5) NOT NULL,
+  data_criacao DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  KEY fk_codigos_autenticacao_empresa_idx (fk_empresa),
+  CONSTRAINT fk_codigos_autenticacao_empresa
+    FOREIGN KEY (fk_empresa) REFERENCES empresas (id)
+);
