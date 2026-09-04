@@ -128,8 +128,21 @@
             </div>
           </div>
 
+          <div>
+            <span class="block text-[12.5px] font-bold text-slate-900 mb-1.5">Codigo</span>
+            <div class="relative flex items-center">
+              <svg class="absolute left-3.5 w-4 h-4 text-slate-400 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <rect x="4" y="10" width="16" height="10" rx="2" />
+                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+              </svg>
+              <input id="cadCodigo" type="password" placeholder="Mínimo 8 caracteres"
+                class="field-input w-full text-sm text-slate-900 bg-mist border border-lineGray rounded-[9px] pl-10 pr-3.5 py-3 outline-none transition placeholder:text-slate-400">
+            </div>
+          </div>
+
           <button type="submit"
-            class="mt-1.5 w-full bg-green700 hover:bg-green600 text-white rounded-[9px] py-3.5 text-[13px] font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition active:translate-y-px">
+            class="mt-1.5 w-full bg-green700 hover:bg-green600 text-white rounded-[9px] py-3.5 text-[13px] font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition active:translate-y-px" onclick="cadastro()">
             Criar conta
             <svg class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -210,4 +223,5 @@
       tipoTela = true;
     }
   }
-</script>
+</script>]
+<script src="js/auth.js"></script>
