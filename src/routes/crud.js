@@ -16,4 +16,8 @@ router.post("/editarPortico", function (req, res) {
     crudController.editarPortico(req, res);
 });
 
+router.get("/listarPortico/:fkEmpresa", function (req, res) {
+    crudController.listarPortico(req, res);
+});
+
 module.exports = router;
