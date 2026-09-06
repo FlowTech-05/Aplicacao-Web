@@ -35,8 +35,9 @@ async function login() {
 
     if(requisicao.ok) {
         resposta = await requisicao.json();
-        console.log(resposta);
         sessionStorage.setItem("USER_ID", resposta.id);
-        sessionStorage.setItem("EMPRESA_ID", resposta.empresa_id); 
+        sessionStorage.setItem("EMPRESA_ID", resposta.empresa_id);
+        
+        window.location = '/dashboard/embarcado.html';
     }
 }
