@@ -224,7 +224,7 @@
         <div class="flex justify-center items-center gap-5">
 
           <div class="flex w-1/2 h-10/10 justify-center items-center">
-            <div
+            <div id="div-cadastro-empresa"
               class="flex flex-col flex justify-center items-center text-center h-fit w-fit rounded-xl border-1 border-gray-300 shadow-xl/30 inset-shadow-indigo-500 p-6.5">
               <div class="flex flex-row gap-3">
                 <div class="flex flex-col gap-3">
@@ -232,7 +232,8 @@
                     <div class="flex justify-center items-center flex-col h-[30dvh] ">
                       <h3 class=" text-4xl md:text-5xl font-bold">Cadastre sua empresa!</h3>
                       <div class="h-10"></div>
-                      <span class="w-4/5 text-xl">Preencha as informações no card para iniciarmos o processo de cadastro da sua
+                      <span class="w-4/5 text-xl">Preencha as informações no card para iniciarmos o processo de cadastro
+                        da sua
                         empresa em nosso sistema!</span>
                     </div>
                   </div>
@@ -270,50 +271,45 @@
                 <div class="flex flex-col border border-gray-300 p-3 rounded-lg p-3 gap-10">
                   <div class="flex flex-col justify-center items-center gap-2">
                     <label class="w-4/5">CEP</label>
-                    <input
-                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
+                    <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
                       type="text" placeholder="00.000.000" id="ipt_cep"
                       onblur="completarCampos(document.getElementById('ipt_cep').value)" />
                   </div>
                   <div class="flex flex-col justify-center items-center gap-2">
                     <label class="w-4/5">Logradouro</label>
-                    <input
-                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
-                      type="text" name="" id="ipt_logradouro" placeholder="Avenida Brasil"/>
+                    <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
+                      type="text" name="" id="ipt_logradouro" placeholder="Avenida Brasil" />
                   </div>
                   <div class="flex flex-col justify-center items-center gap-2">
                     <label class="w-4/5">Número</label>
-                    <input
-                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
+                    <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
                       type="text" name="" id="ipt_numero" placeholder="321" />
                   </div>
                   <div class="flex flex-col justify-center items-center gap-2">
                     <label class="w-4/5">Complemento:</label>
-                    <input
-                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
+                    <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
                       type="text" name="" id="ipt_complemento" placeholder="Apartamento 201, Bloco C" />
                   </div>
                 </div>
                 <div class="flex flex-col items-center border border-gray-300 p-3 rounded-lg p-3 gap-10">
                   <div class="flex flex-col justify-center items-center gap-2">
                     <label class="w-4/5">Bairro:</label>
-                    <input
-                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
+                    <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
                       type="text" name="" id="ipt_bairro" placeholder="Parque dos Ipês" />
                   </div>
                   <div class="flex flex-col justify-center items-center gap-2">
                     <label class="w-4/5">Cidade:</label>
-                    <input
-                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
+                    <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
                       type="text" name="" id="ipt_localidade" placeholder="Belo Horizonte" />
                   </div>
                   <div class="flex flex-col justify-center items-center gap-2">
                     <label class="w-4/5">UF:</label>
-                    <input
-                      class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
+                    <input class="border-1 rounded-md border-gray-300 p-3.5 shadow-md/30 inset-shadow-indigo-500 w-65"
                       type="text" name="" id="ipt_uf" placeholder="ES" />
                   </div>
-                  <button class="w-fit h-[5vh] md:h-1/10 font-semibold text-white rounded-lg bg-green-900 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-green-500 pt-3.5 pb-3.5 pr-6.5 pl-6.5 mt-4" onclick="cadastrarEmpresa()">Enviar</button>
+                  <button
+                    class="w-fit h-[5vh] md:h-1/10 font-semibold text-white rounded-lg bg-green-900 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-green-500 pt-3.5 pb-3.5 pr-6.5 pl-6.5 mt-4"
+                    onclick="cadastrarEmpresa()">Enviar</button>
                 </div>
                 <div class="h-10"></div>
               </div>

@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS flowtech;
 
+USE flowtech;
+
 -- Empresas
 CREATE TABLE empresas (
   id INT NOT NULL AUTO_INCREMENT,
@@ -102,7 +104,7 @@ CREATE TABLE endereco_empresas (
   fk_empresa INT NOT NULL,
   fk_logradouro CHAR(8) NOT NULL,
   numero VARCHAR(20) NOT NULL,
-  complemento VARCHAR(100) NOT NULL,
+  complemento VARCHAR(100) NULL,
   PRIMARY KEY (id),
   KEY fk_endereco_empresas_logradouro_idx (fk_logradouro),
   CONSTRAINT fk_endereco_empresas_empresa
@@ -123,6 +125,7 @@ CREATE TABLE codigos_autenticacao (
 );
 
 DELIMITER $$
+DROP PROCEDURE IF EXISTS cadastrarEmpresa $$
 CREATE PROCEDURE cadastrarEmpresa(
 	IN p_cnpj char(14),
     IN p_r_social varchar(45),
@@ -133,18 +136,23 @@ CREATE PROCEDURE cadastrarEmpresa(
     IN p_localidade char(60),
     IN p_uf char(2),
     IN p_numero varchar(20),
-    IN p_complemento varchar(100)
+    IN p_complemento varchar(100),
+    IN p_codigo_empresa char(5)
     )
 BEGIN
 	DECLARE contador INTEGER;
+  DECLARE id_empresa INTEGER;
 
 	INSERT INTO empresas(cnpj, razao_social, nome_fantasia) VALUES (p_cnpj, p_r_social, p_n_fantasia);
-	SELECT COUNT(*) INTO contador FROM logradouros WHERE p_cep = cep;
+	SET id_empresa = LAST_INSERT_ID();
     
-    IF(contador = 0) THEN
+  SELECT COUNT(*) INTO contador FROM logradouros WHERE p_cep = cep;
+    
+  IF(contador = 0) THEN
 		INSERT INTO logradouros VALUES (p_cep, p_logradouro, p_bairro, p_localidade, p_uf);
 	END IF;
     
 	INSERT INTO endereco_empresas(fk_empresa, fk_logradouro, numero, complemento) VALUES ((select id from empresas where cnpj = p_cnpj), p_cep, p_numero, p_complemento);
+	INSERT INTO codigos_autenticacao (fk_empresa, codigo_autenticacao, data_criacao) VALUES (id_empresa, p_codigo_empresa, NOW());
 END $$	
 DELIMITER ;

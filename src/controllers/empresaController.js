@@ -11,8 +11,9 @@ function cadastrarEmpresa(req, res) {
   var uf = req.body.uf;
   var numero = req.body.numero;
   var complemento = req.body.complemento;
+  var codigo_autenticacao = req.body.codigo_autenticacao;
 
-  empresaModel.cadastrarEmpresa(cnpj, razao_social, nome_fantasia, cep, logradouro, bairro, localidade, uf, numero, complemento).then((resultado) => {
+  empresaModel.cadastrarEmpresa(cnpj, razao_social, nome_fantasia, cep, logradouro, bairro, localidade, uf, numero, complemento, codigo_autenticacao).then((resultado) => {
     res.status(200).json(resultado);
   });
 }
