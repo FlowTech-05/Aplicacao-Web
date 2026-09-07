@@ -4,8 +4,8 @@ CREATE DATABASE IF NOT EXISTS flowtech;
 CREATE TABLE empresas (
   id INT NOT NULL AUTO_INCREMENT,
   cnpj CHAR(14) NOT NULL,
-  razao_social VARCHAR(45) NOT NULL,
-  nome_fantasia VARCHAR(45) NOT NULL,
+  razao_social VARCHAR(150) NOT NULL,
+  nome_fantasia VARCHAR(55) NOT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY cnpj_UNIQUE (cnpj)
 );
@@ -66,7 +66,7 @@ CREATE TABLE embarcados (
 -- Componentes
 CREATE TABLE componentes (
   id INT NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(45) NULL,
+  nome VARCHAR(15) NOT NULL,
   PRIMARY KEY (id)
 );
 
