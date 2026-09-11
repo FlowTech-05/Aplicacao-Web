@@ -1059,4 +1059,30 @@ video {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
+
+  .right-3\.5 {
+    right: 0.875rem;
+  }
+
+  .hover\:text-slate-600:hover {
+    --tw-text-opacity: 1;
+    color: rgb(71 85 105 / var(--tw-text-opacity, 1));
+  }
+
+  .erro-cadastro {
+    display: none;
+    color: #6b7280;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin-top: -2px;
+    margin-bottom: 2px;
+  }
+
+  .erro-cadastro.mostrar {
+    display: block;
+  }
+
+  .erro-cadastro.sucesso {
+    color: #16a34a;
+  }
 }

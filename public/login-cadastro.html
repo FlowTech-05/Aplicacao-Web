@@ -31,28 +31,28 @@
       <div class="relative z-10 grid grid-cols-2 gap-3">
 
         <div class="bg-green700 border border-[#3a8f86] rounded-xl px-4 py-3.5">
-          <div class="text-[10.5px] uppercase tracking-wide text-[#8fada6] font-semibold mb-1.5">Pórticos monitorados
+          <div class="text-[10.5px] uppercase tracking-wide text-[#8fada6] font-semibold mb-1.5">CPU
           </div>
-          <div class="text-xl text-white leading-none">70</div>
-          <div class="text-[11px] text-[#a9c2bc] mt-1.5">distribuídos em 12 rodovias</div>
+          <div class="text-xl text-white leading-none">30%</div>
+          <div class="text-[11px] text-[#a9c2bc] mt-1.5">STATUS: ATIVO</div>
         </div>
 
         <div class="bg-green700 border border-[#3a8f86] rounded-xl px-4 py-3.5">
-          <div class="text-[10.5px] uppercase tracking-wide text-[#8fada6] font-semibold mb-1.5">Falhas evitadas</div>
-          <div class="text-xl text-white leading-none">18</div>
-          <div class="text-[11px] text-[#a9c2bc] mt-1.5">neste mês, via alertas antecipados</div>
+          <div class="text-[10.5px] uppercase tracking-wide text-[#8fada6] font-semibold mb-1.5">RAM</div>
+          <div class="text-xl text-white leading-none">170MB</div>
+          <div class="text-[11px] text-[#a9c2bc] mt-1.5">STATUS: ATIVO</div>
         </div>
 
         <div class="bg-green700 border border-[#3a8f86] rounded-xl px-4 py-3.5">
-          <div class="text-[10.5px] uppercase tracking-wide text-[#8fada6] font-semibold mb-1.5">Disponibilidade</div>
-          <div class="text-xl text-white leading-none">99.8%</div>
-          <div class="text-[11px] text-[#a9c2bc] mt-1.5">uptime garantido da rede</div>
+          <div class="text-[10.5px] uppercase tracking-wide text-[#8fada6] font-semibold mb-1.5">DISCO</div>
+          <div class="text-xl text-white leading-none">3.1GB</div>
+          <div class="text-[11px] text-[#a9c2bc] mt-1.5">STATUS: ATIVO</div>
         </div>
 
         <div class="bg-green700 border border-[#3a8f86] rounded-xl px-4 py-3.5">
-          <div class="text-[10.5px] uppercase tracking-wide text-[#8fada6] font-semibold mb-1.5">Tempo de resposta</div>
-          <div class="text-xl text-white leading-none">4 min</div>
-          <div class="text-[11px] text-[#a9c2bc] mt-1.5">tempo médio até o alerta</div>
+          <div class="text-[10.5px] uppercase tracking-wide text-[#8fada6] font-semibold mb-1.5">REDE</div>
+          <div class="text-xl text-white leading-none">389.4KB/s</div>
+          <div class="text-[11px] text-[#a9c2bc] mt-1.5">STATUS: ATIVO</div>
         </div>
       </div>
     </div>
@@ -76,6 +76,21 @@
 <script>
   let tipoTela = true;
 
+  let iconeOlhoAberto = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>';
+  let iconeOlhoFechado = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><path d="M1 1l22 22" /></svg>';
+
+  function alternarSenha(idCampo, idBotao) {
+    let input = window[idCampo];
+    let botao = window[idBotao];
+    if (input.type == 'password') {
+      input.type = 'text';
+      botao.innerHTML = iconeOlhoFechado;
+    } else {
+      input.type = 'password';
+      botao.innerHTML = iconeOlhoAberto;
+    }
+  }
+
   let divCadastro = `
             <div class="mb-6">
           <h2 class="text-[23px] font-extrabold tracking-tight mb-1.5">Crie sua conta</h2>
@@ -85,10 +100,10 @@
 
         <div class="flex gap-7 border-b border-lineGray mb-7">
           <a onclick="alterarFuncao()" class="pb-3.5 text-[14.5px] font-bold text-slate-400 no-underline" style="cursor: pointer;">Entrar</a>
-          <span class="pb-3.5 text-[14.5px] font-bold text-slate-900 border-b-2 border-green700 -mb-px">Cadastrar</span>
+          <span class="pb-3.5 text-[14.5px] font-bold text-slate-900 border-b-2 border-green700 -mb-px cursor: pointer;">Cadastrar</span>
         </div>
 
-        <form onsubmit="return false" class="flex flex-col gap-4">
+        <form onsubmit="return validarCadastro()" novalidate class="flex flex-col gap-4">
           <div>
             <span class="block text-[12.5px] font-bold text-slate-900 mb-1.5">Nome completo</span>
             <div class="relative flex items-center">
@@ -116,6 +131,26 @@
           </div>
 
           <div>
+            <span class="block text-[12.5px] font-bold text-slate-900 mb-1.5">Código da empresa</span>
+            <div class="relative flex items-center">
+              <svg class="absolute left-3.5 w-4 h-4 text-slate-400 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <rect x="4" y="10" width="16" height="10" rx="2" />
+                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+              </svg>
+              <input id="cadCodigoEmpresa" type="password" placeholder="Código fornecido pela empresa"
+                class="field-input w-full text-sm text-slate-900 bg-mist border border-lineGray rounded-[9px] pl-10 pr-10 py-3 outline-none transition placeholder:text-slate-400">
+              <button type="button" id="olhoCadCodigoEmpresa" onclick="alternarSenha('cadCodigoEmpresa', 'olhoCadCodigoEmpresa')"
+                class="absolute right-3.5 text-slate-400 hover:text-slate-600">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div>
             <span class="block text-[12.5px] font-bold text-slate-900 mb-1.5">Senha</span>
             <div class="relative flex items-center">
               <svg class="absolute left-3.5 w-4 h-4 text-slate-400 pointer-events-none" viewBox="0 0 24 24" fill="none"
@@ -124,25 +159,41 @@
                 <path d="M8 10V7a4 4 0 0 1 8 0v3" />
               </svg>
               <input id="cadSenha" type="password" placeholder="Mínimo 8 caracteres"
-                class="field-input w-full text-sm text-slate-900 bg-mist border border-lineGray rounded-[9px] pl-10 pr-3.5 py-3 outline-none transition placeholder:text-slate-400">
+                class="field-input w-full text-sm text-slate-900 bg-mist border border-lineGray rounded-[9px] pl-10 pr-10 py-3 outline-none transition placeholder:text-slate-400">
+              <button type="button" id="olhoCadSenha" onclick="alternarSenha('cadSenha', 'olhoCadSenha')"
+                class="absolute right-3.5 text-slate-400 hover:text-slate-600">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
             </div>
           </div>
 
           <div>
-            <span class="block text-[12.5px] font-bold text-slate-900 mb-1.5">Codigo</span>
+            <span class="block text-[12.5px] font-bold text-slate-900 mb-1.5">Confirmar senha</span>
             <div class="relative flex items-center">
               <svg class="absolute left-3.5 w-4 h-4 text-slate-400 pointer-events-none" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2">
                 <rect x="4" y="10" width="16" height="10" rx="2" />
                 <path d="M8 10V7a4 4 0 0 1 8 0v3" />
               </svg>
-              <input id="cadCodigo" type="password" placeholder="Mínimo 8 caracteres"
-                class="field-input w-full text-sm text-slate-900 bg-mist border border-lineGray rounded-[9px] pl-10 pr-3.5 py-3 outline-none transition placeholder:text-slate-400">
+              <input id="cadConfirmarSenha" type="password" placeholder="Repita a senha"
+                class="field-input w-full text-sm text-slate-900 bg-mist border border-lineGray rounded-[9px] pl-10 pr-10 py-3 outline-none transition placeholder:text-slate-400">
+              <button type="button" id="olhoCadConfirmarSenha" onclick="alternarSenha('cadConfirmarSenha', 'olhoCadConfirmarSenha')"
+                class="absolute right-3.5 text-slate-400 hover:text-slate-600">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
             </div>
           </div>
 
+          <div id="cadErro" class="erro-cadastro"></div>
+
           <button type="submit"
-            class="mt-1.5 w-full bg-green700 hover:bg-green600 text-white rounded-[9px] py-3.5 text-[13px] font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition active:translate-y-px" onclick="cadastro()">
+            class="mt-1.5 w-full bg-green700 hover:bg-green600 text-white rounded-[9px] py-3.5 text-[13px] font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition active:translate-y-px">
             Criar conta
             <svg class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -151,7 +202,7 @@
             </svg>
           </button>
 
-          <div class="text-center text-[13px] text-slate-500 mt-2">Já tem conta? <a href="login.html" class="font-bold text-green700 hover:underline">Entrar</a>
+        <div class="text-center text-[13px] text-slate-500 mt-2 cursor: default;">Já tem conta? <a onclick="alterarFuncao()" class="font-bold text-green700 hover:underline cursor: pointer;">Entrar</a>
           </div>
         </form>
     `
@@ -163,12 +214,12 @@
         </div>
 
         <div class="flex gap-7 border-b border-lineGray mb-7">
-          <span class="pb-3.5 text-[14.5px] font-bold text-slate-900 border-b-2 border-green700 -mb-px">Entrar</span>
+          <span class="pb-3.5 text-[14.5px] font-bold text-slate-900 border-b-2 border-green700 -mb-px" style="cursor: pointer;">Entrar</span>
           <a onclick="alterarFuncao()"
             class="pb-3.5 text-[14.5px] font-bold text-slate-400 no-underline" style="cursor: pointer;">Cadastrar</a>
         </div>
 
-        <form onsubmit="return false" class="flex flex-col gap-4">
+        <form onsubmit="return false" novalidate class="flex flex-col gap-4">
           <div>
             <span class="block text-[12.5px] font-bold text-slate-900 mb-1.5">E-mail</span>
             <div class="relative flex items-center">
@@ -190,8 +241,15 @@
                 <rect x="4" y="10" width="16" height="10" rx="2" />
                 <path d="M8 10V7a4 4 0 0 1 8 0v3" />
               </svg>
-              <input id="loginSenha" type="password" placeholder="••••••••"
-                class="field-input w-full text-sm text-slate-900 bg-mist border border-lineGray rounded-[9px] pl-10 pr-3.5 py-3 outline-none transition placeholder:text-slate-400">
+              <input id="loginSenha" type="password" placeholder="•••••••"
+                class="field-input w-full text-sm text-slate-900 bg-mist border border-lineGray rounded-[9px] pl-10 pr-10 py-3 outline-none transition placeholder:text-slate-400">
+              <button type="button" id="olhoLoginSenha" onclick="alternarSenha('loginSenha', 'olhoLoginSenha')"
+                class="absolute right-3.5 text-slate-400 hover:text-slate-600">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -199,8 +257,8 @@
             <span class="text-slate-400 font-bold cursor-default select-none">Esqueceu a senha?</span>
           </div>
 
-          <button type="button"
-            class="mt-1.5 w-full bg-green700 hover:bg-green600 text-white rounded-[9px] py-3.5 text-[13px] font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition active:translate-y-px" onclick="login()">
+          <button type="submit"
+            class="mt-1.5 w-full bg-green700 hover:bg-green600 text-white rounded-[9px] py-3.5 text-[13px] font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition active:translate-y-px">
             Entrar
             <svg class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M5 12h14M13 5l7 7-7 7" />
@@ -208,7 +266,7 @@
           </button>
 
           <div class="text-center text-[13px] text-slate-500 mt-2">
-            Não tem conta? <a href="flowtech-cadastro.html"
+            Não tem conta? <a onclick="alterarFuncao()"
               class="font-bold text-green700 hover:underline">Cadastre-se</a>
           </div>
         </form>
@@ -223,5 +281,68 @@
       tipoTela = true;
     }
   }
-</script>]
-<script src="js/auth.js"></script>
+
+  function exibirErroCadastro(mensagem) {
+    cadErro.classList.remove('sucesso');
+    cadErro.innerHTML = mensagem;
+    cadErro.classList.add('mostrar');
+  }
+
+  function exibirSucessoCadastro(mensagem) {
+    cadErro.innerHTML = mensagem;
+    cadErro.classList.add('mostrar', 'sucesso');
+  }
+
+  function validarCadastro() {
+    let nome = cadNome.value.trim();
+    let email = cadEmail.value.trim();
+    let codigoEmpresa = cadCodigoEmpresa.value;
+    let senha = cadSenha.value;
+    let confirmarSenha = cadConfirmarSenha.value;
+
+    cadErro.classList.remove('mostrar');
+
+    let letrasNome = nome.replace(/[^a-zA-ZÀ-ÿ]/g, '');
+    if (letrasNome.length < 2) {
+      exibirErroCadastro('O nome de usuário deve possuir no mínimo 2 letras.');
+      return false;
+    }
+
+    let regraEmail = /^[^@\s]+@[^@\s]+\.com$/;
+    if (regraEmail.test(email) == false) {
+      exibirErroCadastro('Informe um e-mail válido (ex.: usuario@email.com).');
+      return false;
+    }
+
+    if (codigoEmpresa == '') {
+      exibirErroCadastro('Informe o código da empresa.');
+      return false;
+    }
+
+    if (senha.length < 8) {
+      exibirErroCadastro('A senha deve ter no mínimo 8 caracteres.');
+      return false;
+    }
+
+    if (/[A-Z]/.test(senha) == false) {
+      exibirErroCadastro('A senha deve conter pelo menos 1 letra maiúscula.');
+      return false;
+    }
+
+    if (/[^A-Za-z0-9]/.test(senha) == false) {
+      exibirErroCadastro('A senha deve conter pelo menos 1 caractere especial (ex.: @, #, $, %, !).');
+      return false;
+    }
+
+    if (senha != confirmarSenha) {
+      exibirErroCadastro('As senhas não conferem. Verifique o campo Confirmar senha.');
+      return false;
+    }
+
+    exibirSucessoCadastro('Cadastro validado com sucesso!');
+    setTimeout(function () {
+      alterarFuncao();
+    }, 1500);
+    return false;
+  }
+</script>
